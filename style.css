@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  touch-action: none;
+
+}
+
+body {
+  overflow: hidden;
+  display: flex;
+  background: #000000fd;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+
+
+}
+
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(Images/back-image.png);
+  background-position: center;
+  background-size: cover;
+  padding: 10px 10%;
+  overflow: hidden;
+  position: relative;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+
+}
+
+nav {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 200px;
+}
+
+nav ul {
+  flex: 1;
+  text-align: right;
+  margin-right: 150px;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 10px 30px;
+  
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 400;
+  position: relative;
+  padding: 10px;
+  
+}
+
+nav ul li a::before {
+  content: '';
+  width: 100%;
+  height: 0px;
+  background: #2556c9;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  bottom: 5px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  transition: height 0.5s;
+  
+  
+}
+
+nav ul li a:hover::before {
+  height: 85px;
+  
+  
+}
+
+nav ul li a:hover {
+  text-shadow:
+    0 0 0 currentColor,
+    0.3px 0 currentColor,
+    -0.3px 0 currentColor;
+}
+.login {
+  text-decoration: none;
+  color: #ffffff;
+  margin-right: 15px;
+  /* font-weight: 400; */
+  padding: 10px 40px;
+  /* top/bottom 10px, left/right 40px → elongated shape */
+  background: transparent;
+  border: 2px solid #246fbf;
+  outline: #246fbf;
+  border-radius: 12.5px;
+  /* fully rounded edges */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.login:hover {
+  background-color: #4388d1;
+  /* darker blue on hover */
+  box-shadow: 0 0 9px #4667dd,
+    0 0 18px #4667dd,
+    0 0 27px #4667dd;
+  transform: scale(1.07);
+  /* slight grow on hover */
+}
+
+
+
+
+.content {
+  margin-top: 16.5%;
+  max-width: 600px;
+
+}
+
+.content h1 {
+  font-size: 70px;
+  color: hsla(0, 0%, 100%, 0.897);
+
+}
+
+.content p {
+  margin: 10px 0 30px;
+  color: #ffffff;
+
+
+}
+
+.feature-img {
+  position: absolute;
+  width: 575px;
+  bottom: 30%;
+  right: 12.5%;
+
+}
+
+#drag-container,
+#spin-container {
+  position: relative;
+  display: flex;
+  margin: auto;
+  transform-style: preserve-3d;
+  transform: rotateX(-10deg);
+}
+
+#drag-container img,
+#drag-container video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 8px #fff;
+  -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+}
+
+#drag-container img:hover,
+#drag-container video:hover {
+  box-shadow: 0 0 15px #fff;
+}
+
+#drag-container p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(90deg);
+  color: #fff;
+}
+
+#ground {
+  width: 900px;
+  height: 900px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(90deg);
+  background: radial-gradient(#9993, transparent);
+}
+
+#music-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes spinRevert {
+  from {
+    transform: rotateY(360deg);
+  }
+
+  to {
+    transform: rotateY(0deg);
+  }
+}
